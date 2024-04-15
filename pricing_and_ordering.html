@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing & Ordering</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="frame">
+  <div id="navcontainer">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about_us.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="food_gallery.html">Food Gallery</a></li>
+      <li><span>Pricing & Ordering</span></li>
+      <li><a href="delivery_and_shipping.html">Delivery & Shipping</a></li>
+      <li><a href="contacts.html">Contacts</a></li>
+    </ul>
+  </div>
+  <div id="pricing-and-ordering-container">
+    <h2 align="center">Pricing & Ordering</h2>
+    <br><br>
+    <p class="custom-heading">Please enjoy our fantastical new product, custom cheese! Make your own kind of cheese and order it!</p>
+    <br><br>
+    <div id="custom-order-container">
+      <h3>Custom Cheese Order</h3>
+      <form action="submit_order.php" method="post">
+        <label for="cheese-flavor">Select Cheese Flavor:</label>
+        <select name="cheese-flavor" id="cheese-flavor">
+          <option value="Cheese">Cheese</option>
+          <option value="Non-Cheese">Non-Cheese</option>
+        </select><br><br>
+        <label for="cheese-form">Select Cheese Form:</label>
+        <select name="cheese-form" id="cheese-form">
+          <option value="Wheel">Cheese Wheel</option>
+          <option value="Slices">Cheese Slices</option>
+          <option value="Cubes">Cheese Cubes</option>
+          <option value="Liquid">Liquid</option>
+        </select><br><br>
+        <img id="cheese-image" src="img/cheese_yellow.jpg" alt="Cheese Image"><br><br>
+        <label>Select Cheese Color:</label><br>
+        <input type="radio" id="yellow" name="cheese-color" value="Yellow" onchange="changeCheeseImage('Yellow')" checked>
+        <label for="yellow">Yellow</label><br>
+        <input type="radio" id="red" name="cheese-color" value="Red" onchange="changeCheeseImage('Red')">
+        <label for="red">Red</label><br>
+        <input type="radio" id="green" name="cheese-color" value="Green" onchange="changeCheeseImage('Green')">
+        <label for="green">Green</label><br>
+        <input type="radio" id="blue" name="cheese-color" value="Blue" onchange="changeCheeseImage('Blue')">
+        <label for="blue">Blue</label><br>
+        <br>
+        <input type="submit" value="Submit Order">
+      </form>
+    </div>
+    <br>
+    <h2>Standard Cheese Order</h2>
+    <form action="add_to_cart.php" method="post">
+      <ul>
+        <li>
+          <input type="checkbox" id="cheddar" name="cheese[]" value="Cheddar">
+          <label for="cheddar">Cheddar</label>
+        </li>
+        <li>
+          <input type="checkbox" id="brie" name="cheese[]" value="Brie">
+          <label for="brie">Brie</label>
+        </li>
+        <li>
+          <input type="checkbox" id="swiss" name="cheese[]" value="Swiss">
+          <label for="swiss">Swiss</label>
+        </li>
+        <li>
+          <input type="checkbox" id="parmesan" name="cheese[]" value="parmesan">
+          <label for="parmesan">Parmesan</label>
+        </li>
+        <li>
+          <input type="checkbox" id="feta" name="cheese[]" value="feta">
+          <label for="feta">Feta</label>
+        </li>
+        <li>
+          <input type="checkbox" id="gouda" name="cheese[]" value="gouda">
+          <label for="gouda">Gouda</label>
+        </li>
+      </ul>
+      <input type="submit" value="Add to Cart">
+    </form>
+  </div>
+</div>
+<script>
+  function changeCheeseImage(color) {
+    var img = document.getElementById('cheese-image');
+    img.src = 'img/cheese_' + color.toLowerCase() + '.jpg';
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Cheese Store</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="frame">
+  <div id="headcontainer">
+    <div id="leftcontainer">
+      <div id="logo"><a href="#"><img src="images/logo.jpg" alt="" width="267" height="40" /></a></div>
+    </div>
+    <div id="rightcontainer">
+    </div>
+    <br class="spacer" />
+  </div>
+  <div id="navcontainer">
+    <ul>
+      <li><span>Home</span></li>
+      <li><a href="#" onclick=redirectToAboutUs()>About Us</a></li>
+      <li><a href="#" onclick="redirectToServices()">Services</a></li>
+      <li><a href="#" onclick="redirectToFoodGallery()">Food gallery</a></li>
+      <li><a href="#" onclick="redirectToPricingAndOrdering()">Pricing &amp; Ordering</a></li>
+      <li><a href="#" onclick="redirectToDeliveryAndShipping()">Delivery &amp; Shipping</a></li>
+      <li class="noPad"><a href="#">Contacts</a></li>
+    </ul>
+  </div>
+  <div id="banner"></div>
+  <div class="blank"></div>
+  <div id="bodycontainer">
+    <div id="bodycontainercenter">
+      <div id="wmaim">
+        <div id="wtxt"> <img src="img/poeple_eating_cheese.jpg" alt="" width="259" height="108" /><br />
+          <span class="h1">People Enjoying Our Product</span><span class="wtext">
+          <p>This is Cheese Store, a place that will fill all of your cheese based requirements for living.</p>
+          <p>Cheese is a difficult task. We are here to make it simple! When you are in need of cheese-based services, we can help! Simply pick some cheese from our wide selection, and it will be delivered straight to your door. Thanks for shopping with us!</p>
+          <br />
+          <br />
+          </span><br />
+          <div align="right"><a href="#" class="rmore" onclick="redirectToAboutUs()">Read more</a></div>
+        </div>
+      </div>
+    </div>
+    <div id="bodycontainerright">
+      <div id="rmaim">
+        <h3>Check out some of our new cheese based products!</h3>
+        <div class="fpm1">
+          <div class="fpmleft"><img src="img/swiss.jpg" alt="" width="80" height="80" /></div>
+          <div class="ftext fpmright"> <span class="h1">Swiss</span> Mmmmm yummy swiss
+            <div align="right"> <a href="#" class="rmore" onclick="redirectToFoodGallery()">...more</a></div>
+          </div>
+        </div>
+        <div class="fpm1">
+          <div class="fpmleft"><img src="img/parmesan.jpg" alt="" width="80" height="80" /></div>
+          <div class="ftext fpmright"> <span class="h1">Parmesan</span> Mmmmm yummy parmesan
+            <div align="right"> <a href="#" class="rmore" onclick="redirectToFoodGallery()">...more</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br class="spacer" />
+  </div>
+  <div class="blank"></div>
+  <div id="footercontainercenter">
+    <div id="fooertleft">
+      <div id="fstore"><a href="#"><img src="images/logo.jpg" alt="" width="154" height="22" /></a></div>
+    </div>
+    <div id="footeright">
+      <div id="frtop">
+        <div id="fooertxt"><span class="fnav">Home</span> &nbsp;| &nbsp; <a href="#" class="fnav" onclick="redirectToAboutUs()">About Us</a> &nbsp;| &nbsp; <a href="#" class="fnav" onclick="redirectToServices()">Services</a> &nbsp;| &nbsp; <a href="#" class="fnav" onclick="redirectToFoodGallery()">Food gallery</a>&nbsp; |&nbsp; <a href="#" class="fnav" onclick="redirectToPricingAndOrdering()">Pricing &amp; Ordering</a> &nbsp; | &nbsp; <a href="#" class="fnav" onclick="redirectToDeliveryAndShipping()" >Delivery &amp; Shipping</a> &nbsp;| &nbsp; <a href="#" class="fnav" onclick="redirectToContacts()">Contacts</a></div>
+      </div>
+      <div>
+        <div class="copyrighttxt" id="copyright">
+          Designed by Peter Myers, Thanks to <a href="http://www.free-css-templates.com/">Free CSS Templates</a></div>
+        <div id="cardcontainer">
+          <div id="card"><a href="#"><img src="images/card.jpg" alt="" width="141" height="21" border="0" /></a></div>
+          <div class="cardtxt" id="cardtxtcontainer">All major credit cards accepetd </div>
+        </div>
+      </div>
+      <div></div>
+    </div>
+    <br class="spacer" />
+  </div>
+</div>
+<script>
+  fetch('json.json')
+    .then(response => response.json())
+    .then(data => {
+      const banner = document.getElementById('banner');
+      let currentSlide = 0;
+      const changeBackground = () => {
+        banner.style.backgroundImage = `url(${data[currentSlide].image})`;
+        currentSlide = (currentSlide + 1) % data.length;
+      };
+      changeBackground();
+      setInterval(changeBackground, 7000);
+    })
+    .catch(error => console.error('Error fetching JSON:', error));
+
+  function redirectToFoodGallery() {
+    window.location.href = "food_gallery.html";
+  }
+
+  function redirectToAboutUs() {
+    window.location.href = "about_us.html";
+  }
+
+  function redirectToServices() {
+    window.location.href = "services.html";
+  }
+
+  function redirectToPricingAndOrdering() {
+    window.location.href = "pricing_and_ordering.html";
+  }
+
+  function redirectToDeliveryAndShipping() {
+    window.location.href = "delivery_and_shipping.html";
+  }
+
+  function redirectToContacts() {
+    window.location.href = "contacts.html";
+  }
+</script>
+</body>
+</html>

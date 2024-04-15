@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="services-style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="frame">
+  <div id="navcontainer">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about_us.html">About Us</a></li>
+      <li><span>Services</span></li>
+      <li><a href="food_gallery.html">Food Gallery</a></li>
+      <li><a href="pricing_and_ordering.html">Pricing & Ordering</a></li>
+      <li><a href="delivery_and_shipping.html">Delivery & Shipping</a></li>
+      <li><a href="contacts.html">Contacts</a></li>
+    </ul>
+  </div>
+  <div id="services-content">
+    <div class="service" id="service1">
+      <h3>Cheese Caves</h3>
+      <img src="img/cavescheese.png" alt=""/>
+      <p>Since 1949, the US government has been buying surplus milk in the form of cheese from American farmers. However, there was simply too much cheese for the government to buy, and it was starting to get moldy. It is reported that in 1984, the government owned 5 pounds of cheese for each citizen pound. The government was looking for what to do with this surplus cheese, and found their solution in Missouri. In a former limestone mine, the US government stores 1.4 billion pounds of excess cheese at a nice and cool 36 degrees year round. It is reported that it was created by the USDA, but this is a clever government lie, as Cheese Store was the organization who founded this site. The Cheese Caves are our best service, and we are ready to install one right into your backyard! (Cave not included)</p>
+    </div>
+    <div class="service" id="service2">
+      <h3>Cow Airdrop</h3>
+      <img src="img/cowairdrop.jpg" alt=""/>
+      <p>We airdrop you a cow. Cheese at home! (By signing the required waver for purchase, Cheese Store is not liable for any injury to self, others, objects, or cow upon delivery)</p>
+    </div>
+    <div class="service" id="service3">
+      <h3>Delivery</h3>
+      <img src="img/delivery.jpg" alt="">
+      <p>Delivery* (*Must be within a certain range of the Cheese Store main facility.)</p>
+    </div>
+    <div class="service" id="service4">
+    </div>
+  </div>
+  <div id="navigation">
+    <button id="prevBtn" onclick="showPrevService()">Previous</button>
+    <button id="nextBtn" onclick="showNextService()">Next</button>
+  </div>
+</div>
+
+<script>
+  let currentServiceIndex = 0;
+  const services = document.querySelectorAll('.service');
+
+  function showNextService() {
+    services[currentServiceIndex].style.display = 'none';
+    currentServiceIndex = (currentServiceIndex + 1) % services.length;
+    services[currentServiceIndex].style.display = 'block';
+  }
+
+  function showPrevService() {
+    services[currentServiceIndex].style.display = 'none';
+    currentServiceIndex = (currentServiceIndex - 1 + services.length) % services.length;
+    services[currentServiceIndex].style.display = 'block';
+  }
+
+  for (let i = 1; i < services.length; i++) {
+    services[i].style.display = 'none';
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacts</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="frame" align="center">
+  <div id="navcontainer">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about_us.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="food_gallery.html">Food Gallery</a></li>
+      <li><a href="pricing_and_ordering.html">Pricing & Ordering</a></li>
+      <li><a href="delivery_and_shipping.html">Delivery & Shipping</a></li>
+      <li><span>Contacts</span></li>
+    </ul>
+  </div>
+  <div id="contact-container">
+    <h2 align="center">Contact Us</h2>
+    <br>
+    <div id="contact-info">
+      <h3>Contact Information</h3>
+      <p>Email: president@whitehouse.gov</p>
+      <p>Phone: (202) 456-1111</p>
+      <p>Address: 123 Cheese Way, MO</p>
+    </div>
+    <div id="contact-form">
+      <h3>Send Us a Message</h3>
+      <form action="submit_contact.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+        <input type="submit" value="Send Message">
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delivery & Shipping</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="frame">
+  <div id="navcontainer">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about_us.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="food_gallery.html">Food Gallery</a></li>
+      <li><a href="pricing_and_ordering.html">Pricing & Ordering</a></li>
+      <li><span>Delivery & Shipping</span></li>
+      <li><a href="contacts.html">Contacts</a></li>
+    </ul>
+  </div>
+  <div id="content-container">
+    <div id="textbox-container">
+      <h2 align="center">Enter Your Shipping Information</h2>
+      <form id="shipping-form">
+        <textarea id="textbox" name="shipping-address" placeholder="Enter your shipping address here..."></textarea>
+        <input type="submit" value="Check Delivery Range">
+      </form>
+    </div>
+    <div id="image-container">
+      <p>Our facility, located at 123 Cheese Way, MO.</p>
+      <img id="image" src="img/facility.jpg" alt="">
+    </div>
+  </div>
+</div>
+<script>
+  document.getElementById('shipping-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var address = document.getElementById('textbox').value;
+    var message;
+
+    if (address.toLowerCase().includes("123 cheese way") && address.toLowerCase().includes("mo")) {
+      message = "Shipping can be done to this address.";
+    } else {
+      message = "Sorry, your address is too far for delivery.";
+    }
+
+    alert(message);
+  });
+</script>
+</body>
+</html>
